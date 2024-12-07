@@ -9,7 +9,10 @@
 - Firebase setup
 - Firebase Deployment
 - Create signup user account
-
+- Update profile
+- If the user is not login redirect  /browse to login page and vice-versa
+- Unsubscribed to the onAuthStateChanged call back
+- Fetched the Data from the API (TMDB portal API)
 # Features
 - Browse Page (After authentication)
   - Header

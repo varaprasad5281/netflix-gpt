@@ -7,14 +7,13 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { BACKGROUND, USER_PROFILE } from "../utils/constants";
 
 const Login = () => {
   const [isSignIn, setIsSignIn] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleToggle = () => {
@@ -45,8 +44,7 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(auth.currentUser, {
             displayName: name.current.value,
-            photoURL:
-              "https://avatars.githubusercontent.com/u/119512036?s=96&v=4",
+            photoURL: USER_PROFILE,
           })
             .then(() => {
               // Profile updated!
@@ -59,7 +57,6 @@ const Login = () => {
                   photoURL: photoURL,
                 })
               );
-              navigate("/browse");
             })
             .catch((error) => {
               // An error occurred
@@ -75,7 +72,6 @@ const Login = () => {
       signInWithEmailAndPassword(auth, emailValue, passwordValue)
         .then((userCredential) => {
           const user = userCredential.user;
-          navigate("/browse");
           console.log(user);
         })
         .catch((error) => {
@@ -91,10 +87,7 @@ const Login = () => {
     <div className="relative">
       <Header />
       <div>
-        <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/2bcf01ee-7ef6-4930-b0d5-c6863853c461/web/IN-en-20241125-TRIFECTA-perspective_a47db038-756f-4f26-b1f7-cfc882b98746_medium.jpg"
-          alt="background-image"
-        />
+        <img src={BACKGROUND} alt="background-image" />
       </div>
       <form
         onSubmit={handleSubmit}
