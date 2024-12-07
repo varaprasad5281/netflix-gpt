@@ -33,7 +33,7 @@ const Header = () => {
             uid: uid,
             email: email,
             displayName: displayName,
-            photoURL: USER_PROFILE,
+            photoURL: USER_PROFILE || photoURL,
           })
         );
         // ...
@@ -49,8 +49,8 @@ const Header = () => {
     return () => unsubscribe();
   }, []);
   return (
-    <div className="absolute w-full px-8 py-2 bg-gradient-to-b from-black flex justify-between">
-      <img className="w-44 z-50" src={LOGO} alt="logo" />
+    <div className="z-50 absolute w-full px-8 py-2 bg-gradient-to-b from-black flex justify-between">
+      <img className="w-44" src={LOGO} alt="logo" />
       {user && (
         <div className="flex items-center gap-3 text-white font-bold">
           <img

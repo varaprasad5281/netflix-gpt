@@ -20,6 +20,6 @@ const useMovieTrailer = (movieId) => {
   };
   useEffect(() => {
     getMovieVideos();
-  }, [movieId]);
+  }, []);
 };
 export default useMovieTrailer;

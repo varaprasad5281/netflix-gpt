@@ -13,6 +13,11 @@
 - If the user is not login redirect  /browse to login page and vice-versa
 - Unsubscribed to the onAuthStateChanged call back
 - Fetched the Data from the API (TMDB portal API)
+- Custom Hook for Nowplaying Movies Data
+- Create Movies Slice
+- Fetch data for Trailer video
+- Embeded the youtube video and make it Autoplay and mute
+
 # Features
 - Browse Page (After authentication)
   - Header

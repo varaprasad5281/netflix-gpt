@@ -5,7 +5,7 @@ export const BACKGROUND =
   "https://assets.nflxext.com/ffe/siteui/vlv3/2bcf01ee-7ef6-4930-b0d5-c6863853c461/web/IN-en-20241125-TRIFECTA-perspective_a47db038-756f-4f26-b1f7-cfc882b98746_medium.jpg";
 export const USER_PROFILE =
   "https://wallpapers.com/images/high/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.webp";
-
+export const IMG_POSTER_URL = "https://image.tmdb.org/t/p/w500";
 export const API_OPTIONS = {
   method: "GET",
   headers: {
