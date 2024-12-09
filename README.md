@@ -17,6 +17,7 @@
 - Create Movies Slice
 - Fetch data for Trailer video
 - Embeded the youtube video and make it Autoplay and mute
+- Updated Upcoming, Top Rated, Popular movies in the movie List
 
 # Features
 - Browse Page (After authentication)
