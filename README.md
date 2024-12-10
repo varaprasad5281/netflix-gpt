@@ -18,7 +18,9 @@
 - Fetch data for Trailer video
 - Embeded the youtube video and make it Autoplay and mute
 - Updated Upcoming, Top Rated, Popular movies in the movie List
-
+- GPT Search Feature
+- Added multi language Feature
+- Integrate the GPT API
 # Features
 - Browse Page (After authentication)
   - Header
