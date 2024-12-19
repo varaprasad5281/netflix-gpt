@@ -11,7 +11,7 @@ const GptSearchBar = () => {
   const searchInput = useRef(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-
+  const GEMINI_API_KEY = process.env.REACT_APP_API_KEY_GEMINI;
   const handleSearchSubmit = (e) => {
     e.preventDefault();
   };
@@ -30,8 +30,9 @@ const GptSearchBar = () => {
       return [];
     }
   };
-
   const handleGptSearchClick = async () => {
+    if (searchInput.current.value === "") return null;
+
     setLoading(true);
     setError("");
 
@@ -54,7 +55,7 @@ const GptSearchBar = () => {
       };
 
       const geminiResponse = await axios.post(
-        "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=AIzaSyA_3C841-wuXkB6z1EcMPEeL2HGsSrechw",
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${GEMINI_API_KEY}`,
         payload,
         {
           headers: {

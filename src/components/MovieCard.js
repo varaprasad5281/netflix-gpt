@@ -2,7 +2,7 @@ import React from "react";
 import { IMG_POSTER_URL } from "../utils/constants";
 
 const MovieCard = ({ posterUrl, id }) => {
-  if (posterUrl === null) return null;
+  if (!posterUrl) return null;
   const handleMovieSelecct = (id) => {
     console.log(id);
   };
