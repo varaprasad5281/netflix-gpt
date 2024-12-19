@@ -20,7 +20,8 @@
 - Updated Upcoming, Top Rated, Popular movies in the movie List
 - GPT Search Feature
 - Added multi language Feature
-- Integrate the GPT API
+- Integrate with the GEMINI AI
+ - Based on the GEMINI AI results it will check with the TMDB & it will return the results
 # Features
 - Browse Page (After authentication)
   - Header

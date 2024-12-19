@@ -12,6 +12,7 @@ const MovieList = ({ title, movies }) => {
               <MovieCard
                 key={movieBanner.id}
                 posterUrl={movieBanner.poster_path}
+                id={movieBanner.id}
               />
             );
           })}
