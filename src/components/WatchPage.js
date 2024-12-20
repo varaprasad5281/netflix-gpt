@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { addAllMoviesStore } from "../utils/allMovieSlice";
 import VideoBackground from "./VideoBackground";
 import MovieCastDetails from "./MovieCastDetails";
-import useMovieCast from "../hooks/useMovieCast";
 import { addMovieDescription } from "../utils/idSlice";
 import MovieDescription from "./MovieDescription";
 import { Outlet } from "react-router-dom";
@@ -41,8 +40,15 @@ const WatchPage = () => {
     searchMovies,
   ]);
 
-  const findMovieById = allMoviesArray.find((movie) => movie.id === idSelector);
-  dispatch(addMovieDescription(findMovieById));
+  // Find the selected movie and dispatch it as the description
+  useEffect(() => {
+    const findMovieById = allMoviesArray.find(
+      (movie) => movie.id === idSelector
+    );
+    if (findMovieById) {
+      dispatch(addMovieDescription(findMovieById));
+    }
+  }, [dispatch, idSelector, allMoviesArray]);
 
   return (
     <div>

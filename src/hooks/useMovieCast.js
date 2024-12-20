@@ -6,10 +6,13 @@ import { addMovieCast } from "../utils/movieCast";
 const useMovieCast = () => {
   const movie_id = useSelector((store) => store.idSelector.presentId);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false); // Add loading state
   const dispatch = useDispatch();
 
   const getMovieCast = async () => {
-    if (!movie_id) return; // Avoid making the API call if movie_id is not available
+    if (!movie_id) return;
+
+    setLoading(true); // Set loading to true before fetching data
     try {
       const response = await fetch(
         `https://api.themoviedb.org/3/movie/${movie_id}/credits`,
@@ -19,10 +22,13 @@ const useMovieCast = () => {
         throw new Error(`Error: ${response.status}`);
       }
       const json = await response.json();
-      dispatch(addMovieCast(json));
+      console.log("Fetched movie cast:", json); // Log the response for debugging
+      dispatch(addMovieCast(json)); // Dispatch the movie cast data to Redux store
     } catch (err) {
       console.error("Failed to fetch cast data:", err);
-      setError(err.message);
+      setError(err.message); // Set error if fetching fails
+    } finally {
+      setLoading(false); // Set loading to false when fetching is done
     }
   };
 
@@ -30,7 +36,7 @@ const useMovieCast = () => {
     getMovieCast();
   }, [movie_id, dispatch]);
 
-  return { error }; // Return error to the consuming component
+  return { error, loading };
 };
 
 export default useMovieCast;

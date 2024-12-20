@@ -4,7 +4,6 @@ import Browse from "./Browse";
 import { createBrowserRouter } from "react-router-dom";
 import { RouterProvider } from "react-router-dom";
 import WatchPage from "./WatchPage";
-import CastDetails from "./CastDetails";
 
 const Body = () => {
   const appRouter = createBrowserRouter([
@@ -19,12 +18,6 @@ const Body = () => {
         {
           path: "watchpage",
           element: <WatchPage />,
-          children: [
-            {
-              path: "cast-details",
-              element: <CastDetails />,
-            },
-          ],
         },
       ],
     },
