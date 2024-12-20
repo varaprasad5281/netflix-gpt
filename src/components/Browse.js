@@ -8,22 +8,35 @@ import useTopRatedMovies from "../hooks/useTopRatedMovies";
 import useUpcomingMovies from "../hooks/useUpcomingMovies";
 import GptSearch from "./GptSearch";
 import { useSelector } from "react-redux";
+import { Outlet, useLocation } from "react-router-dom";
 
 const Browse = () => {
   const selector = useSelector((state) => state.gpt.showGptSearch);
+  const location = useLocation();
+
+  const isWatchPage = location.pathname.startsWith("/browse/watchpage");
+
+  // Fetch movie data
   useMovieData();
   usePopularMovies();
   useTopRatedMovies();
   useUpcomingMovies();
+
   return (
     <div>
       <Header />
-      {selector ? (
-        <GptSearch />
+      {isWatchPage ? (
+        <Outlet />
       ) : (
         <>
-          <MainContainer />
-          <SecondaryContainer />
+          {selector ? (
+            <GptSearch />
+          ) : (
+            <>
+              <MainContainer />
+              <SecondaryContainer />
+            </>
+          )}
         </>
       )}
     </div>

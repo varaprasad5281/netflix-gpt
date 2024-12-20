@@ -59,8 +59,7 @@ const Login = () => {
               );
             })
             .catch((error) => {
-              // An error occurred
-              // ...
+              console.log(error);
             });
         })
         .catch((error) => {

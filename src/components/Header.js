@@ -9,10 +9,13 @@ import { addUser, removeUser } from "../utils/userSlice";
 import { LOGO, SUPPORTED_LANGUAGES, USER_PROFILE } from "../utils/constants";
 import { toggleGptSearchView } from "../utils/gptSlice";
 import { changeLanguage } from "../utils/configSlice";
+import { useLocation } from "react-router-dom";
 
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const location = useLocation();
+  console.log(location);
   const user = useSelector((store) => store.user);
   const selector = useSelector((store) => store.gpt.showGptSearch);
 
