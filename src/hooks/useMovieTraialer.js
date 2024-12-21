@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 import { API_OPTIONS } from "../utils/constants";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addMovieTrailer } from "../utils/movieSlice";
-
 const useMovieTrailer = (movieId) => {
   const dispatch = useDispatch();
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-
+  const nowMovieTrailer = useSelector((store) => store.movies.trailerVideo);
   const getMovieVideos = async () => {
     if (!movieId) {
       setError("Movie ID is required.");
@@ -40,7 +39,7 @@ const useMovieTrailer = (movieId) => {
   };
 
   useEffect(() => {
-    getMovieVideos();
+    if (!nowMovieTrailer) getMovieVideos();
   }, [movieId]);
 
   return { loading, error };

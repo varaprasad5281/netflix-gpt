@@ -44,7 +44,10 @@ const CastModal = () => {
             </p>
             <p className="text-gray-700">{castDetailsOverall.place_of_birth}</p>
             <p className="text-gray-700">
-              Birth Day:- {castDetailsOverall.birthday}
+              Birth Day:-{" "}
+              {castDetailsOverall.birthday !== null
+                ? castDetailsOverall.birthday
+                : "N/A"}
             </p>
           </div>
         </div>
