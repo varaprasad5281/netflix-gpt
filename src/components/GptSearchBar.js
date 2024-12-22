@@ -12,6 +12,7 @@ const GptSearchBar = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const GEMINI_API_KEY = process.env.REACT_APP_API_KEY_GEMINI;
+
   const handleSearchSubmit = (e) => {
     e.preventDefault();
   };
@@ -30,6 +31,7 @@ const GptSearchBar = () => {
       return [];
     }
   };
+
   const handleGptSearchClick = async () => {
     if (searchInput.current.value === "") return null;
 
@@ -86,28 +88,30 @@ const GptSearchBar = () => {
 
   return (
     <div className="relative">
-      <div>
-        <img src={BACKGROUND} alt="background" className="absolute" />
-      </div>
+      <img
+        src={BACKGROUND}
+        alt="background"
+        className="absolute w-full h-screen"
+      />
       <form
         onSubmit={handleSearchSubmit}
-        className="w-1/2 bg-black flex gap-4 py-4 justify-center items-center absolute top-40 left-[22%] z-50"
+        className="relative md:w-[60%] lg:w-[50%] bg-black md:flex-row flex flex-col md:gap-4 gap-4 py-4 px-4 justify-center items-center mx-auto top-40 z-50 sm:w-[90%]"
       >
         <input
           ref={searchInput}
-          className="px-4 py-2 border border-gray-600 rounded-md w-9/12"
+          className="w-full md:w-9/12 px-4 py-2 border border-gray-600 rounded-md"
           type="text"
           placeholder={lang[selectLang].placeHolder}
         />
         <button
           type="submit"
           onClick={handleGptSearchClick}
-          className="w-2/12 py-2 px-4 rounded-md bg-red-600 text-white h-10 items-center text-center"
+          className="w-full md:w-auto px-4 py-2 rounded-md bg-red-600 text-white"
         >
           {loading ? "Searching..." : "Search"}
         </button>
       </form>
-      {error && <div className="text-red-500 mt-4">{error}</div>}
+      {error && <div className="text-red-500 mt-4 text-center">{error}</div>}
     </div>
   );
 };

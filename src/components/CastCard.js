@@ -26,7 +26,7 @@ const CastCard = () => {
   }
 
   return (
-    <div className="grid grid-cols-[repeat(auto-fill,_minmax(160px,_1fr))] gap-4 p-4">
+    <div className="grid grid-cols-[repeat(auto-fill,_minmax(280px,_1fr))] sm:grid-cols-[repeat(auto-fill,_minmax(160px,_1fr))] gap-4 p-4">
       {movieCastData.map((castUser) => {
         if (!castUser.profile_path) {
           return null;
@@ -39,7 +39,7 @@ const CastCard = () => {
               className="shadow-lg rounded-lg cursor-pointer flex flex-col justify-between"
             >
               <img
-                className="w-40 h-60 rounded-t-lg"
+                className="rounded-t-lg"
                 src={IMG_POSTER_URL + castUser.profile_path}
                 alt={castUser.name}
               />

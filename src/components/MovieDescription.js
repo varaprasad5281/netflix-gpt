@@ -6,7 +6,7 @@ const MovieDescription = () => {
     (store) => store.idSelector.presentMovieDescription
   );
   return (
-    <div className="mt-10 p-4">
+    <div className="md:mt-10 p-4 mt-3">
       <h1 className="font-bold text-3xl">Overview</h1>
       <div className="relative">
         <img

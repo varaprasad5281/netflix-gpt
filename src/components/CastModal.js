@@ -27,10 +27,10 @@ const CastModal = () => {
         >
           ×
         </button>
-        <div className="flex gap-4">
-          <div className="w-80 rounded-lg shrink-0">
+        <div className="flex flex-col sm:flex-row gap-4">
+          <div className="w-full sm:w-80 rounded-lg shrink-0">
             <img
-              className="rounded-lg"
+              className="rounded-lg h-48 sm:h-auto object-cover"
               src={IMG_POSTER_URL + castDetailsOverall.profile_path}
               alt={castDetailsOverall.name}
             />
@@ -44,7 +44,7 @@ const CastModal = () => {
             </p>
             <p className="text-gray-700">{castDetailsOverall.place_of_birth}</p>
             <p className="text-gray-700">
-              Birth Day:-{" "}
+              Birth Day:{" "}
               {castDetailsOverall.birthday !== null
                 ? castDetailsOverall.birthday
                 : "N/A"}

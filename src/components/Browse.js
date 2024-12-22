@@ -9,6 +9,7 @@ import useUpcomingMovies from "../hooks/useUpcomingMovies";
 import GptSearch from "./GptSearch";
 import { useSelector } from "react-redux";
 import { Outlet, useLocation } from "react-router-dom";
+import Footer from "./Footer";
 
 const Browse = () => {
   const selector = useSelector((state) => state.gpt.showGptSearch);
@@ -23,7 +24,7 @@ const Browse = () => {
   useUpcomingMovies();
 
   return (
-    <div>
+    <div className="bg-black">
       <Header />
       {isWatchPage ? (
         <Outlet />
@@ -39,6 +40,7 @@ const Browse = () => {
           )}
         </>
       )}
+      <Footer />
     </div>
   );
 };

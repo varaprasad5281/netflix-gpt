@@ -58,15 +58,15 @@ const Header = () => {
     dispatch(changeLanguage(e.target.value));
   };
   return (
-    <div className="z-50 absolute w-full px-8 py-2 bg-gradient-to-b from-black flex justify-between">
+    <div className="z-50 fixed top-0 w-full md:px-8 py-2 bg-black sm:bg-black md:bg-gradient-to-b from-black flex flex-col items-center md:flex-row md:justify-between">
       <a href="/">
         <img className="w-44 cursor-pointer" src={LOGO} alt="logo" />
       </a>
       {user && (
-        <div className="flex items-center gap-3 text-white font-bold">
+        <div className="flex items-center gap-3 md:w-auto text-white font-bold justify-between sm:w-full">
           {selector && (
             <select
-              className="p-2 bg-gray-600 text-white"
+              className="p-2 bg-gray-600 text-white hidden sm:block"
               onChange={handleLanguageChange}
             >
               {SUPPORTED_LANGUAGES.map((lang) => {

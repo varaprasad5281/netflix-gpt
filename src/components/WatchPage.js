@@ -51,7 +51,7 @@ const WatchPage = () => {
   }, [dispatch, idSelector, allMoviesArray]);
 
   return (
-    <div>
+    <div className="mt-28 md:mt-0 bg-black text-white">
       <VideoBackground movieId={idSelector} />
       <MovieDescription />
       <MovieCastDetails />
