@@ -3,16 +3,15 @@ import { API_OPTIONS } from "../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { addMovieTrailer } from "../utils/movieSlice";
 const useMovieTrailer = (movieId) => {
+  console.log("selected movie id", movieId);
   const dispatch = useDispatch();
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const nowMovieTrailer = useSelector((store) => store.movies.trailerVideo);
+  console.log(nowMovieTrailer);
   const getMovieVideos = async () => {
-    if (!movieId) {
-      setError("Movie ID is required.");
-      return;
-    }
     setLoading(true);
+    console.log("Movie video data");
     try {
       const response = await fetch(
         `https://api.themoviedb.org/3/movie/${movieId}/videos`,
@@ -26,7 +25,7 @@ const useMovieTrailer = (movieId) => {
         (video) => video.type === "Trailer"
       );
       const trailer =
-        trailerData && trailerData.length > 0
+        trailerData && trailerData?.length > 0
           ? trailerData[0]
           : json.results?.[0] || null;
       dispatch(addMovieTrailer(trailer));
@@ -39,7 +38,7 @@ const useMovieTrailer = (movieId) => {
   };
 
   useEffect(() => {
-    if (!nowMovieTrailer) getMovieVideos();
+    getMovieVideos();
   }, [movieId]);
 
   return { loading, error };

@@ -6,11 +6,12 @@ import MovieCastDetails from "./MovieCastDetails";
 import { addMovieDescription } from "../utils/idSlice";
 import MovieDescription from "./MovieDescription";
 import { Outlet } from "react-router-dom";
-
+import ScrollToTop from "./ScrollTop";
 const WatchPage = () => {
   const dispatch = useDispatch();
 
   const idSelector = useSelector((store) => store.idSelector?.presentId);
+  console.log(idSelector);
   const nowPlayingMovies = useSelector(
     (store) => store.movies?.nowPlayingMovies
   );
@@ -52,6 +53,7 @@ const WatchPage = () => {
 
   return (
     <div className="mt-28 md:mt-0 bg-black text-white">
+      <ScrollToTop />
       <VideoBackground movieId={idSelector} />
       <MovieDescription />
       <MovieCastDetails />
