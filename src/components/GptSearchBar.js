@@ -57,7 +57,7 @@ const GptSearchBar = () => {
       };
 
       const geminiResponse = await axios.post(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${GEMINI_API_KEY}`,
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`,
         payload,
         {
           headers: {
@@ -65,8 +65,10 @@ const GptSearchBar = () => {
           },
         }
       );
+
       const aiResponse =
         geminiResponse?.data?.candidates[0]?.content?.parts[0]?.text;
+      console.log(aiResponse);
 
       const moviesArray = aiResponse.split(",").map((movie) => movie.trim());
       const tmdbResults = await Promise.all(

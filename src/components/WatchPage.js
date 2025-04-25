@@ -21,6 +21,7 @@ const WatchPage = () => {
   const searchMovies = useSelector((store) => store.gpt?.movieResults);
 
   // Combine movies into a single array
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const allMoviesArray = [
     ...(nowPlayingMovies || []),
     ...(popularMovies || []),
@@ -39,6 +40,7 @@ const WatchPage = () => {
     ratedMovies,
     upcomingMovies,
     searchMovies,
+    allMoviesArray,
   ]);
 
   // Find the selected movie and dispatch it as the description
