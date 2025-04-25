@@ -1,3 +1,6 @@
+# LIVE LINK
+https://netflixgpt-f2f43.web.app
+
 # Netflix GPT 
 - create-react-app
 - Configured TailwindCSS
