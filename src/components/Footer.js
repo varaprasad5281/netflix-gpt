@@ -1,6 +1,6 @@
 import React from "react";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
-import { LOGO } from "../utils/constants";
+import LOGOIMAGE from "../assets/logo.png";
 
 const Footer = () => {
   return (
@@ -8,7 +8,11 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           <div className="flex flex-col items-center sm:items-start">
-            <img src={LOGO} alt="Logo" className="w-32 mb-4" />
+            <img
+              className="w-44 h-20 cursor-pointer"
+              src={LOGOIMAGE}
+              alt="logo"
+            />
             <p className="text-center sm:text-left text-gray-400">
               I just make this for learning purpose.
             </p>

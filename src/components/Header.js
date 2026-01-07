@@ -6,10 +6,10 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
-import { LOGO, SUPPORTED_LANGUAGES, USER_PROFILE } from "../utils/constants";
+import { SUPPORTED_LANGUAGES, USER_PROFILE } from "../utils/constants";
 import { toggleGptSearchView } from "../utils/gptSlice";
 import { changeLanguage } from "../utils/configSlice";
-
+import LOGOIMAGE from "../assets/logo.png";
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -60,7 +60,7 @@ const Header = () => {
   return (
     <div className="z-50 fixed top-0 w-full md:px-8 py-2 bg-black sm:bg-black md:bg-gradient-to-b from-black flex flex-col items-center md:flex-row md:justify-between">
       <a href="/">
-        <img className="w-44 cursor-pointer" src={LOGO} alt="logo" />
+        <img className="w-44 h-20 cursor-pointer" src={LOGOIMAGE} alt="logo" />
       </a>
       {user && (
         <div className="flex items-center gap-3 md:w-auto text-white font-bold justify-between sm:w-full">
@@ -80,7 +80,7 @@ const Header = () => {
           )}
 
           <button
-            className="px-4 py-2 bg-purple-600 rounded-md"
+            className="px-4 py-2 bg-purple-600 rounded-md cursor-pointer"
             onClick={handleGptSearchClick}
           >
             {selector ? "Move to Main" : "GPT Search"}

@@ -38,10 +38,13 @@ const GptSearchBar = () => {
     setLoading(true);
     setError("");
 
-    const gptQuery =
-      "Act as a movie recommendation system and suggest some movies for the query: " +
-      searchInput.current.value +
-      ". Only give me names of 5 movies, comma separated like the example result given ahead. Example Result: Pushpa-2, Don, OG, Salar, Harihara Veeramallu.";
+    const gptQuery = `You are a movie recommendation system.
+    Based on the user query: "${searchInput.current.value}",
+    suggest exactly 5 relevant movies.
+    Respond with ONLY the movie names, separated by commas.
+    Do NOT add explanations, numbering, or extra text.
+    Format exactly like this:
+    Movie1, Movie2, Movie3, Movie4, Movie5`;
 
     try {
       const payload = {
@@ -57,7 +60,7 @@ const GptSearchBar = () => {
       };
 
       const geminiResponse = await axios.post(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`,
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${GEMINI_API_KEY}`,
         payload,
         {
           headers: {
